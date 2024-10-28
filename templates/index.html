@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #282828;
+            color: #f3f3f3;
+        }
+        #gameContainer {
+            text-align: center;
+        }
+        #scoreBoard {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            grid-gap: 10px;
+            background-color: #3a3a3a;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .tile {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #282828;
+            border-radius: 5px;
+        }
+        .tile[data-value="0"] { background-color: #3a3a3a; }
+        .tile[data-value="2"] { background-color: #eee4da; }
+        .tile[data-value="4"] { background-color: #ede0c8; }
+        .tile[data-value="8"] { background-color: #f2b179; color: #f9f6f2; }
+        .tile[data-value="16"] { background-color: #f59563; color: #f9f6f2; }
+        .tile[data-value="32"] { background-color: #f67c5f; color: #f9f6f2; }
+        .tile[data-value="64"] { background-color: #f65e3b; color: #f9f6f2; }
+        .tile[data-value="128"] { background-color: #edcf72; color: #f9f6f2; }
+        .tile[data-value="256"] { background-color: #edcc61; color: #f9f6f2; }
+        .tile[data-value="512"] { background-color: #edc850; color: #f9f6f2; }
+        .tile[data-value="1024"] { background-color: #edc53f; color: #f9f6f2; }
+        .tile[data-value="2048"] { background-color: #edc22e; color: #f9f6f2; }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="scoreBoard">
+            <p>Score: <span id="currentScore">0</span></p>
+            <p>High Score: <span id="highScore">{{ high_score }}</span></p>
+        </div>
+        <div id="grid">
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+            <div class="tile" data-value="0"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html>
